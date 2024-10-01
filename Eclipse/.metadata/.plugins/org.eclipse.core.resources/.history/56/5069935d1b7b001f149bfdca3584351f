@@ -1,0 +1,45 @@
+package week1package;
+
+import java.util.Scanner;
+
+public class HelloWorld {
+	
+
+	public static void main(String[] args){
+		
+		Scanner inputCheck = new Scanner(System.in);
+				
+		System.out.print("Enter Your Name: ");
+		String name = inputCheck.nextLine();
+		
+		System.out.print("Enter Your Age: ");
+		String age = inputCheck.nextLine();
+		
+		System.out.print("Enter Your Hobby: ");
+		String hobby = inputCheck.nextLine();
+		
+		
+	
+		
+		String result = String.format("You are %s, you are %s years old. Your favourite hobby is %s", name, age, hobby);
+		
+		System.out.print(result);
+		
+		System.out.println("Enter Your Height: ");
+		String height = inputCheck.nextLine();
+		
+		System.out.print("Enter Your Weight: ");
+		String weight = inputCheck.nextLine();
+		
+		System.out.print("Enter Your Surname: ");
+		String surname = inputCheck.nextLine();
+		
+		String result2 = String.format("Dear Mr.%s, The Medical Information Gathered that you are %s in stature & weigh %s", surname, height, weight);
+		
+		System.out.print(result2);
+		
+		inputCheck.close();
+	}
+	
+	
+}

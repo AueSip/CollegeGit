@@ -1,0 +1,74 @@
+a {
+color: green;
+text-decoration: none;
+
+}
+a:visited{
+    color:black;  
+   
+}
+
+.mainImage{
+    border-radius: 100px;
+    width: 30%;
+    image-rendering: pixelated;
+}
+
+.textBoxStyle{
+    background-color: lightgray;
+    border-radius: 10px;
+    padding: 20px;
+    width: 20%;
+}
+
+.holdingContainer{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: black;
+    border-width: 5px;
+    border-radius: 10px;
+    border-style: double;
+    border-color: aliceblue;
+    width: 100%;
+    
+
+}
+
+.objectImage{
+    margin: 5px;
+    border-radius:25px;
+    border-style: solid;
+    border-width: 5px;
+    width: 70%;
+    image-rendering: pixelated;
+    border-color: rgb(0, 0, 0);
+}
+
+.descriptionContainer{
+    width: 40%;
+    color: aliceblue;
+    background-color: black;
+    margin-bottom: 5px;
+    border-width: 5px;
+    border-radius: 10px;
+    border-style: double;
+    border-color: aliceblue;
+    display: inline-block;
+}
+
+.screenContents{
+    background-color: white;
+    width: 100%;
+
+}
+
+.objectContainer{
+    background-color: rgb(56, 9, 9);
+    margin: 30px;
+    border-width: 5px;
+    color: rgb(167, 167, 167);
+    border-style: solid;
+    width: 20%;
+    min-height: 200px;
+    display: inline-block;
+}

@@ -1,0 +1,35 @@
+[
+
+    {
+        "color" : "red",
+        "age" : 1995,
+        "model" : "toyota"
+
+    },
+
+    {
+        "color" : "orange",
+        "age" : 2005,
+        "model" : "kia"
+
+    },
+
+    {
+        "color" : "blue",
+        "age" : 2012,
+        "model" : "mazda"
+
+    },
+
+    {
+        "color" : "pink",
+        "age" : 2012,
+        "model" : "hyundai"
+
+    }
+
+
+
+
+
+]

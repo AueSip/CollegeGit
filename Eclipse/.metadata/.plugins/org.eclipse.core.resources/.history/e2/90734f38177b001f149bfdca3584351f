@@ -1,0 +1,27 @@
+package week1package;
+
+import java.util.Scanner;
+
+public class HelloWorld {
+	
+
+	public static void main(String[] args){
+		
+		Scanner inputCheck = new.Scanner(System.in);
+				
+		System.out.print("Enter First Number: ");
+		double num1 = inputCheck.nextDouble();
+		
+		System.out.print("Enter Second Number: ");
+		double num2 = inputCheck.nextDouble();
+		
+		
+		double result = num1 + num2
+		
+		System.out.print(result);
+		
+		inputCheck.close();
+	}
+	
+	
+}

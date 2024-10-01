@@ -1,0 +1,97 @@
+/*Custom Font*/
+@font-face {
+    font-family: DPComic;
+    src: url('dpcomic.ttf');
+}
+
+
+
+.main {
+    background: rgb(50, 1, 1);
+min-height: 600;}
+
+.mianImg { width:100%;}
+
+
+/* Column to contain containers */
+.column {
+    float:left;
+    width: 33%;
+    padding: 0px;
+}
+
+
+
+/* Row to contain containers */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.crop {
+    width: 288px;
+    height: 182px;
+    overflow: hidden;
+}
+
+
+/*alters the table color when hovered!*/
+.table:hover {
+    background-color: brown;
+    
+}
+
+.topofScreen{
+    position: absolute;
+    top: -40px;
+}
+
+.boxShape{
+    background-color: rgb(30, 24, 47);
+    border-color: aliceblue;
+    border-style: double;
+    border-width: 5px;
+    border-radius: 25px;
+    width: 80%;
+    min-height: 180px;
+    display:inline-block;
+    margin:-2px;
+
+}
+
+.linkbox{
+    background-color: white;;
+    border-color: rgb(138, 183, 245);
+    border-style: double;
+    border-width: 5px;
+    border-radius: 25px;
+    width: 80%;
+    min-height: 20px;
+    display:inline-block;
+    margin:-2px;    
+
+}
+/*Adds a border to images based on these parameters*/
+.ImageBorder{
+    scale: 45%;
+    border-radius: 15px;
+    border-color: white;
+    border-style:solid ;
+    border-width: 5px;
+    margin: -70px;
+    margin-bottom:-100px;
+    
+}
+
+.boxShell{
+
+background-color: rgb(30, 24, 47);
+border-radius: 15px;
+border-color: black;
+border-style: solid;
+border-width: 5px;
+padding: 5px;
+
+
+}

@@ -1,0 +1,30 @@
+package week1package;
+
+import java.util.Scanner;
+
+public class HelloWorld {
+	
+
+	public static void main(String[] args){
+		
+		Scanner inputCheck = new Scanner(System.in);
+				
+		System.out.print("Enter Your Name: ");
+		String name = inputCheck.nextString();
+		
+		System.out.print("Enter Your Age: ");
+		String age = inputCheck.nextDouble();
+		
+		System.out.print("Enter Your Hobby: ");
+		String hobby = inputCheck.nextDouble();
+		
+		
+		String result = "You are " + name + ". " + "You are " + age + " years old. " + 
+		
+		System.out.print(result);
+		
+		inputCheck.close();
+	}
+	
+	
+}

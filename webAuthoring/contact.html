@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+
+
+
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id = "testChange">ScottF's</title>
+    <meta name="description" content="AueSip's Released Godot & Unreal Engine Games"/>
+    <meta name="author" content="Scott Fowler" />
+    <meta name="keywords" content="DwarVein, Godot, OverUnderFlow, HTML, Games" />
+    <link rel="stylesheet" href="StyleSheets/assignment.css" type="text/css" />
+    <link rel="icon"
+     href="https://img.itch.zone/aW1nLzE2MDYwNjgxLnBuZw==/696x512%23/%2FgNBpA.png" 
+    type = "image/x=icon"/>
+    <style type="text/css">.body { width: auto; }</style>
+  </head>
+
+  <body style="background-color: rgb(30, 22, 58);font-family: DPComic; background-image: url('Images/BlueBackground.png'); background-repeat: no-repeat; background-size: cover";>
+
+
+
+
+
+
+    
+<!-- Tables and Table data allow a section to be formated akin to excel tables
+ using tr allows use of multiple rows! -->
+ <div class="topofScren">
+    <table style="width:100%;border:solid 2px whitesmoke;color:white;text-align: center; background-color: black ;">
+     <tr>
+      
+
+      <!-- The <form action> allows links from within buttons-->
+        <td article class="table">
+          <form action="index.html">
+            <input type="submit" value="Home" style="width:100%">
+          </form>
+         </td>
+        <td class="table">
+          <form action="contact.html">
+            <input type="submit" value="Contact" style="width:100%">
+          </form>
+        </td>
+        <td class="table">
+          <form action="news.html">
+            <input type="submit" value="News" style="width:100%" onsubmit="openLink(news.html)">
+          </form>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+<center>
+  
+  <p>
+    <div class="row">
+      <div class ="column">
+          <p>
+            <a href="https://www.youtube.com/@auesip"
+                target="_self"><img src="Images/Youtube400xlogo.png" class="ImageBorder" alt="Youtube Link">
+              
+              </a>
+          </p>
+          <p>
+            <a href="https://x.com/auesip"
+            target="_self"><img src="Images/X400pxLogo.png" class="ImageBorder" alt="X Link">
+          
+            </a>
+          </p>
+       </img>
+      </div>
+
+
+      <div class ="column">
+          <p>
+            <a href="https://discord.gg/p8Aar6P77C"
+                target="_self"><img src="Images/Discord.png" class="ImageBorder" alt="Discord Link"></a>
+          </p>  
+          
+          <p>
+            <a href="https://github.com/AueSip"
+            target="_self"><img src="Images/Git400pxLogo.png" class="ImageBorder" alt="Github Link"></a>
+          </p>
+       </img>
+      </div>
+
+      <div class ="column">
+        
+        <p>
+         <a href="mailto:auesip.dev@gmail.com" class="
+            target="_self"><img src="Images/Gmail400pxLogo.png" class="ImageBorder" alt="Mail Link"></a>
+        </p>
+        <p>
+          <a href="https://www.linkedin.com/in/scott-fowler-4ba0722b9/" 
+          target="_self"><img src="Images/LinkedIn400pxlogo.png" class="ImageBorder" alt="LinkedIn Link"></a>
+        </p>
+       </img>
+      </div>
+    </div>
+  </p>
+</center> 
+  </body>
+
+
+
+  <script>
+    setInterval("titleChange()", 1);
+    
+    function titleChange() {
+      let text;
+      if (document.hasFocus()) {
+        text = "Scott F's Page.";
+      } else {
+        text = "Come Back!!!"; 
+      }
+    document.getElementById("testChange").innerHTML = text;
+    }
+  
+    </script>
+  
+</html>
