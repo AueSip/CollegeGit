@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -39,7 +40,8 @@ public class InsurancePol {
 	static Scanner inputCheck = new Scanner(System.in);
 	
 	//IO Exception allows to function even if errors occur
-	public static void main(String[] args) throws IOException, InputMismatchException, NoSuchElementException{
+	//retrieves data from excel file, and retrieves data based on user input
+	public static void main(String[] args) throws IOException, InputMismatchException, NoSuchElementException, InterruptedException{
 	
 		
 		
@@ -67,45 +69,64 @@ public class InsurancePol {
 		
 		int rows = mainSheet.getLastRowNum();
 		
+		
 		//checks each row starting with the second row, searching through each name until the input one is found
 		Boolean userFound = false;
+		Boolean finalUserRow = false;
 		
-		for (int r=0;r <= rows;r++) 
-		{
+		for (int r=0;r <= rows;++r) 
+		{	
+			//System.out.println(r);
+			
 			XSSFRow row = mainSheet.getRow(r);
-			loopPolicies(row);
-			//error located, looping through both rows and columns throws multiple "You do not exist in this directory"
+			
 			XSSFCell cell = row.getCell(0);
+			//error located, looping through both rows and columns throws multiple "You do not exist in this directory"
+			
+			//Error where list of rows was adding users at the very end!
 			if (cell == null){
+				//System.out.println("Empty");
+				row = mainSheet.getRow(r);
 				cell = row.createCell(0);
+				if (finalUserRow == false) {
+					rows = cell.getRowIndex();
+					//System.out.println(rows + "Updated Rows");
+					finalUserRow = true;
+				}
+			
+			
+				
 				
 			}
 			
 			
-			switch(cell.getCellType())
-			//error when more than one user was inputed, it would output invalid users as it found empty values, asking for registration
-			{
 			
-			case STRING: 
-				if  (cell.getStringCellValue().equals(userName)) {
-						userFound = true;
-						presentUserData(mainSheet.getRow(cell.getRowIndex()));
+			if  (cell.getStringCellValue().equals(userName)) {
+					userFound = true;
+					presentUserData(mainSheet.getRow(cell.getRowIndex()));
 						
-						}
+					}
 				//checks if all rows have been searched and if a user has not been found, it will ask to register
 				
-				else if ((r == rows) && (userFound == false)){
-					//improves as someone who isn't on the data list can register immediately and continue on as if they were there already
-					//Can set up a registration system
-					System.out.println("you do not exist on our directory");
-					System.out.println("Would you like to register? Y/N ");
+			else if ((r == rows) && (userFound == false)){
+				//improves as someone who isn't on the data list can register immediately and continue on as if they were there already
+				//Can set up a registration system
+				System.out.println("you do not exist on our directory");
+				System.out.println("Would you like to register? Y/N ");
 					
-					//ensures no matter how the name is inputed, it will be located
-					 String request = inputCheck.nextLine().toLowerCase();
-					 if (request.equals("y")) {
+				//ensures no matter how the name is inputed, it will be located
+					String request = inputCheck.nextLine().toLowerCase();
+					if (request.equals("y")) {
 						 System.out.println("You are now registered!");
-						 int rowToAppend = mainSheet.getLastRowNum();
-						 row = mainSheet.createRow(++rowToAppend);
+						 
+						 row = mainSheet.getRow(r);
+						 //System.out.println("Last Row Num" + mainSheet.getLastRowNum() + " | " + "R vaulue: " + r);
+						 //adds a row at the end if required
+						 if ((r == mainSheet.getLastRowNum()) && (row.getCell(0).getRawValue() != null)){
+							int rowToAppend = mainSheet.getLastRowNum();
+							row = mainSheet.createRow(++rowToAppend);
+						 }
+						
 						 XSSFCell checkedCell = row.createCell(0);
 						 checkedCell.setCellValue(userName);
 						 //allows to call userFile writing in different scenarios
@@ -122,23 +143,18 @@ public class InsurancePol {
 						
 	
 						
-			}; break;	
+			}; 
 				
-				default:
-					break;	
+				
 				
 				}
 			}
 			
-	}	
-	
-	
-	
-	
-		public static void presentUserData(XSSFRow rowTarget) throws IOException, InputMismatchException, NoSuchElementException{
+		//presentsData on screen
+		public static void presentUserData(XSSFRow rowTarget) throws IOException, InputMismatchException, NoSuchElementException, InterruptedException{
 			
 			XSSFRow currentRow = rowTarget;
-			
+			loopPolicies();
 			
 			XSSFCell checkedCell = currentRow.getCell(2);
 			//if a cell does not exist, it is created
@@ -229,26 +245,16 @@ public class InsurancePol {
 				System.out.println(output);
 				checkedCell.setCellValue(paymentDue);
 				
+				//looping an infinite index?
 				
-				for (int val = 0; val < 5; val++) {
-					 Random random = new Random();
-					 random.ints(0, 20);
-					     String outputPolicy = arrayList.get(random);
+				
+				conditionLoop();
+					}
 					
-				}
-					
-				
-				
 				writeUserFiles();
-			}
+				}
 				
-			}
-				
-				
-				
-			
-			
-		
+		//Writes Data	
 		public static void writeUserFiles()  throws IOException {
 			FileOutputStream outputStream = new FileOutputStream(".\\Datafiles\\Insurance.xlsx");
 			workbook.write(outputStream);
@@ -256,17 +262,43 @@ public class InsurancePol {
 			outputStream.close();
 			System.out.close();
 			
-		}
-		
-		public static void loopPolicies(XSSFRow inputRow) {
-			XSSFCell policyCell = inputRow.getCell(4);
-			if (policyCell.getStringCellValue() != null){
-				String tempString = policyCell.getStringCellValue();
-				arrayList.add(tempString);
 			}
-			
 		
+		//loops the policies
+		
+		public static void loopPolicies() {
+			for(int b = 1;b < mainSheet.getLastRowNum();b++) {
+
+				XSSFRow inputRow = mainSheet.getRow(b);
+				XSSFCell policyCell = inputRow.getCell(3);
+				if (policyCell != null){
+					String tempString = policyCell.getStringCellValue();
+					//System.out.println(policyCell.getStringCellValue());
+					arrayList.add(tempString);
+				}
+					
+			}
 		}
+			
+		//loop output the conditional policies from array
+		public static void conditionLoop() throws InterruptedException {
+				System.out.println("Please See Below a list of conditions applied to the premium:");
+				for (int val = 0; val < 5; val++) {
+					//Seconds to delay output,
+					TimeUnit.SECONDS.sleep(1);
+					Random random = new Random();
+					 
+					int value = random.nextInt(arrayList.size() - 1);
+					//ensures that the value doesn't exceed the array size
+					String output = String.format("Condition No:%s is: %s",val + 1, arrayList.get(value));
+					//Removing the item from the array as it loops through
+					arrayList.remove(value);
+					System.out.println(output);
+					     //String outputPolicy = arrayList.get(value);
+					     //System.out.println(outputPolicy);
+					}
+		
+			}
 		}
 
 

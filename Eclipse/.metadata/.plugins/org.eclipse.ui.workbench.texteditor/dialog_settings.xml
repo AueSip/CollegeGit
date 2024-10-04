@@ -3,7 +3,13 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="false"/>
 	<list key="searchhistory">
+		<item value="System.out.print"/>
+		<item value="policycell"/>
+		<item value="rowToAppend"/>
+		<item value="r"/>
+		<item value="array"/>
 		<item value="rows"/>
+		<item value="looppo"/>
 		<item value="inputCheck.close"/>
 		<item value="while"/>
 		<item value="row.getcell"/>
@@ -17,6 +23,7 @@
 		<item key="isRegEx" value="false"/>
 		<item key="selection" value=""/>
 		<list key="findhistory">
+			<item value="a"/>
 			<item value="rows"/>
 			<item value="while"/>
 			<item value="you"/>

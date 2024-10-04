@@ -3,7 +3,7 @@
 	<item key="org.eclipse.jdt.ui.last.selected.jre.kind2" value="2"/>
 	<item key="org.eclipse.jdt.ui.last.selected.execution.enviroment" value="JavaSE-22"/>
 	<item key="org.eclipse.jdt.ui.last.external.project" value="C:\Users\fowle\Desktop\Eclipse"/>
-	<item key="org.eclipse.jdt.ui.lastextjar" value="C:\Users\fowle\Desktop\Eclipse\poi-bin-5.2.3\lib"/>
+	<item key="org.eclipse.jdt.ui.lastextjar" value="C:\Users\fowle\Desktop\CollegeGit\Eclipse\poi-bin-5.2.3"/>
 	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
 		<item key="group_libraries" value="true"/>
 		<item key="layout" value="2"/>
@@ -53,5 +53,8 @@
 	</section>
 	<section name="WorkingSetModelAwareSelectionDialog">
 		<item key="ShowVisibleOnly" value="true"/>
+	</section>
+	<section name="ClasspathContainerSelectionPage">
+		<item key="index" value="0"/>
 	</section>
 </section>
