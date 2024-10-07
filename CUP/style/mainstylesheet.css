@@ -57,18 +57,55 @@ a:visited{
 }
 
 .screenContents{
-    background-color: white;
+ 
+   
     width: 100%;
-
 }
 
 .objectContainer{
     background-color: rgb(56, 9, 9);
     margin: 30px;
-    border-width: 5px;
+   
     color: rgb(167, 167, 167);
-    border-style: solid;
     width: 20%;
     min-height: 200px;
     display: inline-block;
+    position: relative;
+
+}
+
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits:false;
+}
+
+.objectContainer::after, .objectContainer::before{
+    
+    content:"";
+    position:absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), red, orange, yellow,green,blue,purple,pink,red);
+    top: 50%;
+    left:50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 5px;
+    border-radius: 10px;
+    animation: 3s spin linear infinite;
+
+}
+.objectContainer::before{
+    filter: blur(3.0rem);
+
+}
+@keyframes spin{
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle:360deg;
+    }
 }
