@@ -9,26 +9,28 @@ a:visited{
 }
 
 .mainImage{
-    border-radius: 100px;
+    border-radius: 5px;
     width: 30%;
     image-rendering: pixelated;
 }
 
 .textBoxStyle{
-    background-color: lightgray;
+    background-color: #276FBF;
+    color:whitesmoke;
     border-radius: 10px;
     padding: 20px;
-    width: 20%;
+    margin-left: 20px;
+    width: 10%;
+    height: 150px;
+    display: inline-block;
+    word-wrap: break-word;
+    translate: 0% -20%;
 }
 
 .holdingContainer{
     padding-top: 10px;
     padding-bottom: 10px;
-    background-color: black;
-    border-width: 5px;
-    border-radius: 10px;
-    border-style: double;
-    border-color: aliceblue;
+    
     width: 100%;
     
 
@@ -36,18 +38,17 @@ a:visited{
 
 .objectImage{
     margin: 5px;
-    border-radius:25px;
-    border-style: solid;
-    border-width: 5px;
+    border-radius:5px;
+   
     width: 70%;
     image-rendering: pixelated;
-    border-color: rgb(0, 0, 0);
+
 }
 
 .descriptionContainer{
     width: 40%;
     color: aliceblue;
-    background-color: black;
+    background-color: #F03A47;
     margin-bottom: 5px;
     border-width: 5px;
     border-radius: 10px;
@@ -57,15 +58,13 @@ a:visited{
 }
 
 .screenContents{
- 
-   
     width: 100%;
 }
 
 .objectContainer{
-    background-color: rgb(56, 9, 9);
+    background-color: #AF5B5B;
     margin: 30px;
-   
+  
     color: rgb(167, 167, 167);
     width: 20%;
     min-height: 200px;
@@ -87,18 +86,21 @@ a:visited{
     position:absolute;
     height: 100%;
     width: 100%;
-    background-image: conic-gradient(from var(--angle), red, orange, yellow,green,blue,purple,pink,red);
+    background-image: conic-gradient(from var(--angle), transparent, #F03A, transparent);
+    z-index: -1;
     top: 50%;
     left:50%;
     translate: -50% -50%;
-    z-index: -1;
+   
     padding: 5px;
     border-radius: 10px;
     animation: 3s spin linear infinite;
 
 }
+
+
 .objectContainer::before{
-    filter: blur(3.0rem);
+    filter: blur(1.5rem);
 
 }
 @keyframes spin{
@@ -109,3 +111,33 @@ a:visited{
         --angle:360deg;
     }
 }
+
+.bannerImg{
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    margin-bottom: 50px;
+}   
+
+.bannerMargin{
+    margin: -250px 0px 0px 0px;
+}
+
+.bannerImg .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-380%, -300%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .bannerImg .btn:hover {
+    background-color: rgb(178, 178, 178);
+  }

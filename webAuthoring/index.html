@@ -15,9 +15,9 @@
     <style type="text/css">.body { width: auto; }</style>
     <meta charset="UTF-8">
   </head>
-
+  
   <body style="background-color: rgb(30, 22, 58);font-family: DPComic; background-image: url('Images/BlueBackground.png'); background-repeat: no-repeat; background-size: cover";>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
 
 
 <!--This creates a box that can be added around each object!-->
@@ -84,7 +84,7 @@
     
       <div class="row">
         <div class ="column">
-         <img src="Images/DwarVein.png"  alt="DwarVein Image" article class="mianImg crop boxShape"> 
+         <img id = "dwarVeinImage" src="Images/DwarVein.png"  alt="DwarVein Image" article class="mianImg crop boxShape"> 
           </img>
           <p>
            <a href="https://auesip.itch.io/dwarvein" class="linkbox"
@@ -104,7 +104,7 @@
 
 
        <div class="column">
-          <img src="Images/OverUnderFlow.png"  alt="OverUnderFlow Image" article class="mianImg crop boxShape">
+          <img id ="overUnderFlowImage" src="Images/OverUnderFlow.png"  alt="OverUnderFlow Image" article class="mianImg crop boxShape">
           </img>
           <p>
              <a href="https://auesip.itch.io/overunder-flow" class="linkbox"
@@ -122,7 +122,7 @@
 
 
        <div class="column">
-          <img src="Images/Constitution.png" alt="Constitution Image" article class="mianImg crop boxShape">
+          <img id = "constitutionImage" src="Images/Constitution.png" alt="Constitution Image" article class="mianImg crop boxShape">
           </img>
           <p>
             <a href="https://auesip.itch.io/constitution-wip"  class="linkbox"
@@ -135,6 +135,11 @@
           </p>
          
        </div>
+
+
+
+<div id = "boxAppear" class = "tooltip">This game is DwarVein</div>
+
       </div>
     
     
@@ -156,8 +161,39 @@
       }
     document.getElementById("testChange").innerHTML = text;
     }
+
+
+    jQuery(document).ready(function(){
+   $('#dwarVeinImage').click(function(e){
+    $('#boxAppear').hide();
+    $('#boxAppear').css({'top':e.pageY,'left':e.pageX, 'position':'absolute', 'border':'1px solid black', 'padding':'5px'});
+    $(`#boxAppear`).empty();
+    $(`#boxAppear`).append("This is DwarVein")
+    $('#boxAppear').show();
+   });
+   $('#overUnderFlowImage').click(function(e){
+    $('#boxAppear').hide();
+    $('#boxAppear').css({'top':e.pageY,'left':e.pageX, 'position':'absolute', 'border':'1px solid black', 'padding':'5px'});
+    $(`#boxAppear`).empty();
+    $(`#boxAppear`).append("This is Over||Under Flow")
+    $('#boxAppear').show();
+   });
+   $('#constitutionImage').click(function(e){
+    $('#boxAppear').hide();
+    $('#boxAppear').css({'top':e.pageY,'left':e.pageX, 'position':'absolute', 'border':'1px solid black', 'padding':'5px'});
+    $(`#boxAppear`).empty();
+    $(`#boxAppear`).append("This is Constitution")
+    $('#boxAppear').show();
+   });
+   
+});
+  
   
     </script>
+
+
+
+
   
   </body>
 

@@ -95,3 +95,9 @@ padding: 5px;
 
 
 }
+
+.tooltip{
+    color:whitesmoke;
+    background-color: black;
+    display: none;
+}
