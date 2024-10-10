@@ -11,6 +11,10 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -28,6 +32,7 @@ public class InsurancePol {
 	static String excelFilePath = ".\\Datafiles\\Insurance.xlsx" ;
 	static Boolean hasntRegistered = false;
 	static FileInputStream inputstream = null;
+	static String displayText = "";
 	
 	static XSSFWorkbook workbook = null;
 	static List<String> arrayList = new ArrayList<String>();
@@ -44,12 +49,12 @@ public class InsurancePol {
 	public static void main(String[] args) throws IOException, InputMismatchException, NoSuchElementException, InterruptedException{
 	
 		
-		
-		
+		//Creation of a JfRAME
+		//guiManagement(displayText = "Enter your first Name: ");
 		System.out.println("Enter Your Name: ");
 		
 		//ensures no matter how the name is inputed, it will be located
-		userName = inputCheck.nextLine().toLowerCase();
+		userName = inputCheck.nextLine();
 		//System.out.println(userName);
 		
 		excelFilePath = ".\\Datafiles\\Insurance.xlsx" ;
@@ -299,10 +304,22 @@ public class InsurancePol {
 					}
 		
 			}
+		
+
+
+		public static void guiManagement(String textToDisplay) {
+			
+			GuiFrame frame = new GuiFrame();
+			ImageIcon image = new ImageIcon("Icon512x.png");
+			GuiFrame.label.setText(textToDisplay);
+			frame.setTitle("Registration");
+			frame.setSize(420, 120);
+			frame.setIconImage(image.getImage());
+			
+			
+			
 		}
-
-
-
+}
 	
 	
 	
