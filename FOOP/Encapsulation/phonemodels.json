@@ -1,0 +1,82 @@
+[
+{
+    "make": "samsung",
+    "model": "s22",
+    "price": 1000
+},
+{
+    "make": "samsung",
+    "model": "s10",
+    "price": 200
+},
+{
+    "make": "samsung",
+    "model": "a55",
+    "price": 500
+},
+{
+    "make": "apple",
+    "model": "iphone 14",
+    "price": 1200
+},
+{
+    "make": "apple",
+    "model": "iphone 14 pro",
+    "price": 1500
+},
+{
+    "make": "apple",
+    "model": "iphone 14 pro max",
+    "price": 1800
+},
+{
+    "make": "samsung",
+    "model": "s21",
+    "price": 900
+},
+{
+    "make": "samsung",
+    "model": "a33",
+    "price": 300
+},
+{
+    "make": "samsung",
+    "model": "a22",
+    "price": 250
+},
+{
+    "make": "samsung",
+    "model": "s11",
+    "price": 400
+},
+{
+    "make": "samsung",
+    "model": "a11",
+    "price": 150
+},
+{
+    "make": "apple",
+    "model": "iphone 13",
+    "price": 1000
+},
+{
+    "make": "apple",
+    "model": "iphone 13 pro",
+    "price": 1300
+},
+{
+    "make": "apple",
+    "model": "iphone 13 pro max",
+    "price": 1600
+},
+{
+    "make": "apple",
+    "model": "iphone 12",
+    "price": 800
+},
+{
+    "make": "apple",
+    "model": "iphone 12 pro",
+    "price": 1100
+} 
+]

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<!--Entitie examples: &lt; (<) , &gt; (>) or &nbsp; (Links words with spaces together) or &copy;(Copyright)-->
+
+
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id = "testChange">ScottF's</title>
+    <meta name="description" content="AueSip's Released Godot & Unreal Engine Games">
+    <meta name="author" content="Scott Fowler">
+    <meta name="keywords" content="DwarVein, Godot, OverUnderFlow, HTML, Games">
+    <link rel="stylesheet" href="StyleSheets/assignment.css" type="text/css">
+    <link rel="icon" href="Images/WebIcon.png" type = "image/x;icon">
+    <style type="text/css">.body { width: auto; }</style>
+    <meta charset="UTF-8">
+  </head>
+  
+  <body style="background-color: rgb(30, 22, 58);font-family: DPComic; background-image: url('Images/BlueBackground.png'); background-repeat: no-repeat; background-size: cover";>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
+
+
+<!--This creates a box that can be added around each object!-->
+<style>
+  .boxShape{
+    background-color: rgb(30, 24, 47);
+    border-color: rgb(0, 0, 0);
+    border-style:solid;
+    border-width: 5px;
+    border-radius: 15px;
+    width: 80%;
+    min-height: 180px;
+    display:inline-block;
+    margin:-2px;
+  }
+  
+</style>
+
+
+
+
+    
+<!-- Tables and Table data allow a section to be formated akin to excel tables
+ using tr allows use of multiple rows! -->
+    <div class="topofScren">
+      <table style="width:100%;border:solid 2px whitesmoke;color:white;text-align: center; background-color: black ;">
+       <tr>
+        
+
+        <!-- The <form action> allows links from within buttons-->
+          <td class="table">
+            <form action="index.html">
+              <input type="submit" value="Home" style="width:100%">
+            </form>
+           </td>
+          <td class="table">
+            <form action="contact.html">
+              <input type="submit" value="Contact" style="width:100%">
+            </form>
+          </td>
+          <td class="table">
+            <form action="news.html">
+              <input type="submit" value="News" style="width:100%" onsubmit="openLink(news.html)">
+            </form>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+
+       <center>
+
+        <h1 style="color: rgb(255, 255, 255);"> 
+            <b><u>Scott Fowlers Games Conent</u></b>
+        </h1>
+        <h4 style="color: rgb(255, 255, 255);margin-top:-12px;">
+            Home to All Games Created!
+        </h4>
+      
+
+<!-- Article Class allows multiple css styles to be applied at once!
+
+ Div allows splitting of the page into points and assigning a class allows specific placement-->
+    
+      <div class="row">
+        <div class ="column">
+         <img id = "dwarVeinImage" src="Images/DwarVein.png"  alt="DwarVein Image" article class="mianImg crop boxShape"> 
+          </img>
+          <p>
+           <a href="https://auesip.itch.io/dwarvein" class="linkbox"
+              target="_blank">DwarVein </a>
+          </p>
+          <p style="color: whitesmoke; padding: 5px;" class="boxShape">
+            Welcome to DwarVein, a world where you a trusty dwarf venture forth into inhabited caves on the search for valuable Gems.
+             Careful though, there are creatures lurking in the dark abyss.
+             They have stolen your trusted companions and hid them within the caves!
+            Using your trusty flashlight, and pickaxe you uncover treasures on each of your runs to aid you! 
+            
+
+
+          </p>
+        
+        </div>
+
+
+       <div class="column">
+          <!--<img id ="overUnderFlowImage" src="Images/OverUnderFlow.png"  alt="OverUnderFlow Image" article class="mianImg crop boxShape">-->
+          <iframe width="320" height="180" src="https://www.youtube.com/embed/oa85ZgfC_Q8" title="I Won My FIRST Game Jam Using Godot (and You Can Too!)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </img>
+          <p>
+             <a href="https://auesip.itch.io/overunder-flow" class="linkbox"
+              target="_blank">Over||UnderFlow</a>
+          </p>
+          <p style="color: whitesmoke; padding: 5px;" class="boxShape">
+            This game is for 3Gnomes' Gamejam Use It or Lose It.
+            Welcome to the liquidation, a facility for testing the capabilities of the Alienoid sphere against vast amounts of water,
+             In here you will complete 6 puzzle levels. 
+            Collecting batteries to unlock the door to the next level!
+            Have you got what it takes to complete them the quickest?
+          </p>
+         
+       </div>
+
+
+       <div class="column">
+          <img id = "constitutionImage" src="Images/Constitution.png" alt="Constitution Image" article class="mianImg crop boxShape">
+          </img>
+          <p>
+            <a href="https://auesip.itch.io/constitution-wip"  class="linkbox"
+              target="_blank">Constitution</a>
+          </p>
+          <p style="color: whitesmoke; padding: 5px;" class ="boxShape">
+            The idea is you will be on a quest to defeat 3 bosses that each drop an item needed to heal the Dragon who sends you on this adventure! 
+            After you defeat them all and return him to full health, you will go take out the final boss (In theory Phase) together.
+            Currently we have 1 Boss added into the game and the ability to heal the dragon using just the 1 Boss Drop for the moment!
+          </p>
+         
+       </div>
+
+
+
+<div id = "boxAppear" class = "tooltip">This game is DwarVein</div>
+
+      </div>
+    
+    
+
+
+
+  </center>
+
+<!--This is how to change the title based on tab focus!--> 
+  <script>
+    setInterval("titleChange()", 1);
+    
+    function titleChange() {
+      let text;
+      if (document.hasFocus()) {
+        text = "Scott F's Page.";
+      } else {
+        text = "Come Back!!!"; 
+      }
+    document.getElementById("testChange").innerHTML = text;
+    }
+
+
+    jQuery(document).ready(function(){
+   $('#dwarVeinImage').click(function(e){
+    $('#boxAppear').hide();
+    $('#boxAppear').css({'top':e.pageY,'left':e.pageX, 'position':'absolute', 'border':'1px solid black', 'padding':'5px'});
+    $(`#boxAppear`).empty();
+    $(`#boxAppear`).append("This is DwarVein")
+    $('#boxAppear').show();
+   });
+  
+
+   $('#overUnderFlowImage').click(function(e){
+    $('#boxAppear').hide();
+    $('#boxAppear').css({'top':e.pageY,'left':e.pageX, 'position':'absolute', 'border':'1px solid black', 'padding':'5px'});
+    $(`#boxAppear`).empty();
+    $(`#boxAppear`).append("This is Over||Under Flow")
+    $('#boxAppear').show();
+   });
+   $('#constitutionImage').click(function(e){
+    $('#boxAppear').hide();
+    $('#boxAppear').css({'top':e.pageY,'left':e.pageX, 'position':'absolute', 'border':'1px solid black', 'padding':'5px'});
+    $(`#boxAppear`).empty();
+    $(`#boxAppear`).append("This is Constitution")
+    $('#boxAppear').show();
+   });
+   
+});
+  
+  
+    </script>
+
+
+
+
+  
+  </body>
+
+
+
+
+
+</html>

@@ -1,0 +1,22 @@
+
+
+.pinkDiv{
+    width: auto;
+    height: auto;
+    background-image:url('../image/sky.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    color: white;
+    font-size: xx-large;
+}
+
+.pinkDiv h1{
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 40px;
+    color: greenyellow;
+    text-shadow: 0 0 40px red;
+}
+
+
+  

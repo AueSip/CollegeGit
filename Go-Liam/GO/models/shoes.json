@@ -1,0 +1,32 @@
+[
+  {
+    "Make": "Adidas",
+    "Model": "Samba",
+    "Price": 79
+  },
+  {
+    "Make": "Puma",
+    "Model": "Disk",
+    "Price": 119
+  },
+  {
+    "Make": "Reebok",
+    "Model": "Classic",
+    "Price": 59
+  },
+  {
+    "Make": "Converse",
+    "Model": "Chuck Taylor",
+    "Price": 189
+  },
+  {
+    "Make": "a",
+    "Model": "b",
+    "Price": 1
+  },
+  {
+    "Make": "liam",
+    "Model": "liam",
+    "Price": 22
+  }
+]

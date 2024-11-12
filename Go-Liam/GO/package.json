@@ -1,0 +1,16 @@
+{
+  "name": "go",
+  "version": "1.0.0",
+  "description": "create a folder\r open the folder\r open a new terminal\r in the terminal run\r npm init\r answer all the questions by pressing enter \r npm install ejs express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1"
+  }
+}

@@ -1,0 +1,124 @@
+header{
+    width: 100%;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+
+    display: inline-block;
+    padding: 3px;
+    font-size: larger;
+}
+
+li{
+    list-style-type: none;
+    display: inline-block;
+   padding-right: 50px;
+}
+
+a{
+    text-decoration: none; 
+    color: black;
+}
+
+.titleLogo{
+    text-align: left;
+    font-size: x-large;
+    padding-right: 100px;
+}
+
+.searchBar{
+    float: right;
+    border: 1px solid black;
+    margin:10px;
+    padding:0px;
+    background-color: white;
+}
+
+.product{
+    border: 1px solid black;
+    margin: 5px;
+    padding: 0px;
+    width: 31%;
+    max-height: 600px;
+    display: inline-block;
+    text-align: center;
+}
+.itemHolder{
+    display: inline-block;
+    background-color: red;
+    width: 100%;
+    
+}
+
+.sizes{
+    display: inline-block;
+    width: 20%;
+    border: 1px solid black;
+    border-collapse: separate;
+   font-size: large;
+}
+.middleDescription{
+    text-align: left;
+    display: inline-block;
+    width: 100%;
+    margin:auto;
+    color: white;
+    font-size: large;
+    line-height: 0;
+    margin: 0;
+    
+   
+}
+
+.descriptor{
+    
+    font-size: x-large;  
+    line-height: 1;
+    margin: 0;
+}
+
+.shoeImage{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+@media only screen and (max-width: 600px) {
+    .itemHolder {
+        width: 100%;
+    }
+    .sizes {
+        width: 100%;
+        font-size: small;
+        padding: 5px;
+    }
+    .middleDescription {
+        font-size: small;
+    }
+    .descriptor {
+        font-size: small;
+    }
+    .shoeImage {
+        width: 100%;
+        height: 150px;
+    }
+
+
+    .product {
+        display: block;
+        width: 100%;
+    }
+    
+
+    li{
+        list-style-type: none;
+        display: inline-block;
+       padding-right: 5px;
+    }
+
+    .titleLogo{
+        text-align: left;
+        font-size: x-large;
+        padding-right: 5px;
+    }
+}

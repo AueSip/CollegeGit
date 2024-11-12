@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Shoe</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Link to a CSS file if you have one -->
+</head>
+<body>
+    <div class="container">
+        <h1>Add a New Shoe</h1>
+        <form action="/shoes" method="POST">
+            <div class="form-group">
+                <label for="make">Make:</label>
+                <input type="text" id="make" name="make" required>
+            </div>
+            <div class="form-group">
+                <label for="model">Model:</label>
+                <input type="text" id="model" name="model" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" required>
+            </div>
+            <button type="submit">Add Shoe</button>
+        </form>
+        <a href="/">Go Back</a>
+    </div>
+    <script src="/scripts.js"></script> <!-- Link to a JavaScript file if you have one -->
+</body>
+</html>

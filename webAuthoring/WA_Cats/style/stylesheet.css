@@ -1,0 +1,124 @@
+body{
+    background-color: #FDFDFF;
+    text-align: center;
+    margin: 0;
+}
+
+header{
+    width: 100%;
+    min-height: 30px;
+}
+
+#mainHolder{
+    margin: auto;
+    width: 95%;
+    min-height: 600px;
+    background-color: #204E4A;
+}
+
+#logoPlace {
+    
+    width: 30%;
+    float: left;
+
+}
+
+#menuPlace {
+    
+    width: 65%;
+    float: left;
+
+}
+
+.mainSite{
+    min-height: 1000px;
+    background-color: #FDFDFF;
+    width: 100%;
+    float: left;
+}
+
+.catHolder{
+    min-height: 20px;
+    background-color: #62929E;
+    width: 30%;
+    display: inline-block;
+    border-radius: 8px;
+    margin: 10px;
+    box-shadow: 5px 5px 5px black;
+}
+
+.catHolder h2 {
+    font-size: 20px;
+    color: white;
+}
+
+.catHolder p {
+    font-size: 20px;
+    color: #C6C5B9;
+}
+
+ul {
+    list-style:none;
+}
+
+li{
+    display: inline-block;
+    width: 20%;
+    background-color: black;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+li a {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+footer{
+    width: 100%;
+    min-height: 90px;
+    position: absolute;
+    left:0px;
+    right:0px;
+}
+
+.catImg{
+    width:70%;
+    border-radius: 5%;
+    margin:auto;
+}
+
+.logoImg{
+    width:40%;
+    border-radius: 50%;
+    margin:auto;
+}
+
+.catBut{
+
+    font-style:italic;
+    color: white;
+    font-size: 20px;
+    background-color: #393D3F;
+    border-radius: 5px;
+}
+
+.catBut:hover{
+    background-color: #546A7B;
+}
+
+@media only screen and (max-width: 800px){
+    .catHolder{
+        min-height: 200px;
+        background-color: #62929E;
+        width: 90%;
+        display: inline-block;
+        border-radius: 8px;
+        margin: 10px;
+        box-shadow: 5px 5px 5px black;
+    }  
+
+    li{
+        display: none;
+    }
+}

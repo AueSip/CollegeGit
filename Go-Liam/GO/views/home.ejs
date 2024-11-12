@@ -1,0 +1,21 @@
+<!-- /views/home.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoe List</title>
+</head>
+<body>
+    <h1>Available Shoes</h1>
+    <ul>
+        <% shoesData.forEach(shoe => { %>
+            <li>
+                <strong>Brand:</strong> <%= shoe.Make %> <br>
+                <strong>Model:</strong> <%= shoe.Model %> <br>
+                <strong>Price:</strong> €<%= shoe.Price %>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>

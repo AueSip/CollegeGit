@@ -1,0 +1,59 @@
+[
+  {
+    "Make": "converse",
+    "Model": "sneaker",
+    "Price": 100,
+    "Image": "converse.jpg"
+  }
+  ,
+  {
+    "Make": "nike",
+    "Model": "sneaker",
+    "Price": 80
+  },
+  {
+    "Make": "adidas",
+    "Model": "sneaker",
+    "Price": 70
+  },
+  {
+    "Make": "vans",
+    "Model": "sneaker",
+    "Price": 60
+  },
+  {
+    "Make": "converse",
+    "Model": "boot",
+    "Price": 120
+  },
+  {
+    "Make": "nike",
+    "Model": "boot",
+    "Price": 100
+  },
+  {
+    "Make": "adidas",
+    "Model": "boot",
+    "Price": 90
+  },
+  {
+    "Make": "vans",
+    "Model": "boot",
+    "Price": 80
+  },
+  {
+    "Make": "converse",
+    "Model": "sandal",
+    "Price": 40
+  },
+  {
+    "Make": "nike",
+    "Model": "sandal",
+    "Price": 30
+  },
+  {
+    "Make": "adidas",
+    "Model": "sandal",
+    "Price": 20
+  }
+]

@@ -1,5 +1,8 @@
 package week1package;
 
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -9,6 +12,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.ImageIcon;
@@ -33,29 +37,29 @@ public class InsurancePol {
 	static Boolean hasntRegistered = false;
 	static FileInputStream inputstream = null;
 	static String displayText = "";
-	
+	static String buttonOutput = "";
 	static XSSFWorkbook workbook = null;
 	static List<String> arrayList = new ArrayList<String>();
-	
 	static int userAge = 0;
-	
 	static int userMidAge = 16;
 	static int userTooOld = 700;
 	static int adminCharge = 22;
 	static Scanner inputCheck = new Scanner(System.in);
-	
+	static GuiFrame frame = new GuiFrame();
+	private static CountDownLatch latch = new CountDownLatch(1);
 	//IO Exception allows to function even if errors occur
 	//retrieves data from excel file, and retrieves data based on user input
 	public static void main(String[] args) throws IOException, InputMismatchException, NoSuchElementException, InterruptedException{
 	
 		
 		//Creation of a JfRAME
-		//guiManagement(displayText = "Enter your first Name: ");
+		guiManagement(displayText = "Enter your first Name: ");
 		System.out.println("Enter Your Name: ");
-		
+		buttonChecker();
 		//ensures no matter how the name is inputed, it will be located
-		userName = inputCheck.nextLine();
-		//System.out.println(userName);
+		latch.await();
+		userName = buttonOutput.toLowerCase();
+		
 		
 		excelFilePath = ".\\Datafiles\\Insurance.xlsx" ;
 		
@@ -81,30 +85,21 @@ public class InsurancePol {
 		
 		for (int r=0;r <= rows;++r) 
 		{	
-			//System.out.println(r);
+			
 			
 			XSSFRow row = mainSheet.getRow(r);
 			
 			XSSFCell cell = row.getCell(0);
-			//error located, looping through both rows and columns throws multiple "You do not exist in this directory"
 			
-			//Error where list of rows was adding users at the very end!
+			
 			if (cell == null){
-				//System.out.println("Empty");
 				row = mainSheet.getRow(r);
 				cell = row.createCell(0);
 				if (finalUserRow == false) {
 					rows = cell.getRowIndex();
-					//System.out.println(rows + "Updated Rows");
 					finalUserRow = true;
 				}
-			
-			
-				
-				
 			}
-			
-			
 			
 			if  (cell.getStringCellValue().equals(userName)) {
 					userFound = true;
@@ -116,16 +111,17 @@ public class InsurancePol {
 			else if ((r == rows) && (userFound == false)){
 				//improves as someone who isn't on the data list can register immediately and continue on as if they were there already
 				//Can set up a registration system
-				System.out.println("you do not exist on our directory");
+				System.out.println("You do not exist on our directory");
 				System.out.println("Would you like to register? Y/N ");
-					
+				guiManagement("You do not exist on our directory, Would you like to register? Y/N ");
 				//ensures no matter how the name is inputed, it will be located
-					String request = inputCheck.nextLine().toLowerCase();
+					latch = new CountDownLatch(1);
+					latch.await();
+					String request = buttonOutput.toLowerCase();
 					if (request.equals("y")) {
 						 System.out.println("You are now registered!");
-						 
 						 row = mainSheet.getRow(r);
-						 //System.out.println("Last Row Num" + mainSheet.getLastRowNum() + " | " + "R vaulue: " + r);
+						 
 						 //adds a row at the end if required
 						 if ((r == mainSheet.getLastRowNum()) && (row.getCell(0).getRawValue() != null)){
 							int rowToAppend = mainSheet.getLastRowNum();
@@ -139,7 +135,7 @@ public class InsurancePol {
 					 }
 					else {
 							System.out.println("We Hope to see you another time!");
-							//ensuring the input closes along with the system!
+							guiTextDisplay("We hope to see you another time!");
 							inputCheck.close();
 							System.out.close();
 						 }
@@ -174,23 +170,36 @@ public class InsurancePol {
 			}
 			
 			
-			String output = String.format("Hi %s how old are you?: ", userName);
-			System.out.println(output);
-			
+			String output = String.format("Hi %s <br> how old are you?: ", userName);
+			GuiFrame.label.setText("<html>" + output + "</html");
+			buttonChecker();
+			//ensures no matter how the name is inputed, it will be located
+
 			int tempAge = 0;
 			Boolean hasAge = false;
 			while(!hasAge) {
 				try
 					{
-						tempAge = Integer.parseInt(inputCheck.nextLine());
+						latch = new CountDownLatch(1);
+						latch.await();
+						tempAge = Integer.parseInt(buttonOutput);
+						checkedCell = currentRow.getCell(1);
+						if (checkedCell == null){
+							//if a cell does not exist, it is created
+							checkedCell = currentRow.createCell(1);
+						}
+						//checks to ensure that the user is under 100 years old, and is older than previous year
+						if (tempAge < 100 && tempAge >= checkedCell.getNumericCellValue()){
+							userAge = tempAge;
+							hasAge = true;
+						}
 						
-						userAge = tempAge;
-						hasAge = true;
 					}
 					catch (NumberFormatException e)
 					{
-						System.out.println("Please Enter A Valid Age!");
+						GuiFrame.label.setText("Please Enter A Valid Age:");
 						hasAge = false;
+						
 					}
 				}
 			
@@ -201,26 +210,25 @@ public class InsurancePol {
 				checkedCell = currentRow.createCell(1);
 			}
 			
-			
-			
-			
 			checkedCell.setCellValue(userAge);
-			
-			
 			
 			if (userAge <= 20){
 				int waitingYears = (21 - userAge);
-				output = String.format("Sorry %s are too young for the policy and have to wait %s years before applying again!",userName,waitingYears);
-				System.out.print(output);
+				
+				output = String.format("Sorry %s you are too young for the policy and have to wait %s years before applying again!",userName,waitingYears);
+				guiTextDisplay(output);
+				
+				
 			}
 			else {
 				if (hasntRegistered){
 					output = String.format("Okay %s, our records show that this is your first time with us", userName);
-					System.out.println(output);
+					guiTextDisplay(output);
 				}
 				else {
+					
 					output = String.format("Okay %s our records inform us that your last premium paid was €%s", userName, previousInsurance);
-					System.out.println(output);
+					guiTextDisplay(output);
 				}
 				
 				int calculationCost = 1;
@@ -233,12 +241,11 @@ public class InsurancePol {
 					calculationCost = userTooOld;
 				}
 				
-				output = String.format("So %s, as you are %s years old, your new policy has been calculated at: €%s",userName,userAge,calculationCost);
-				System.out.println(output);
+			
+			
 				
 				
-				output = String.format("There is an admin charge of €%s",adminCharge);
-				System.out.println(output);
+				
 				
 				int paymentDue = (calculationCost + adminCharge);
 				checkedCell = currentRow.getCell(2);
@@ -246,18 +253,24 @@ public class InsurancePol {
 					//if a cell does not exist, it is created
 					checkedCell = currentRow.createCell(2);
 				}
-				output = String.format("Today you have paid €%s",paymentDue);
+				
+				output = String.format("So %s, as you are %s years old, your new policy has been calculated at: €%s. <br> There is an admin charge of €%s. <br> Today you have paid €%s.",userName,userAge,calculationCost, adminCharge, paymentDue);
+				guiTextDisplay(output);
+				TimeUnit.SECONDS.sleep(3);
 				System.out.println(output);
 				checkedCell.setCellValue(paymentDue);
 				
-				//looping an infinite index?
+			
+				
 				
 				
 				conditionLoop();
 					}
+			
 					
-				writeUserFiles();
-				}
+			writeUserFiles();
+		}
+			
 				
 		//Writes Data	
 		public static void writeUserFiles()  throws IOException {
@@ -269,8 +282,7 @@ public class InsurancePol {
 			
 			}
 		
-		//loops the policies
-		
+		//Loops the policies for the user
 		public static void loopPolicies() {
 			for(int b = 1;b < mainSheet.getLastRowNum();b++) {
 
@@ -285,23 +297,26 @@ public class InsurancePol {
 			}
 		}
 			
-		//loop output the conditional policies from array
+		//Loop output the conditional policies from array for the user
 		public static void conditionLoop() throws InterruptedException {
+				String finalList = "";
 				System.out.println("Please See Below a list of conditions applied to the premium:");
 				for (int val = 0; val < 5; val++) {
 					//Seconds to delay output,
-					TimeUnit.SECONDS.sleep(1);
 					Random random = new Random();
 					 
 					int value = random.nextInt(arrayList.size() - 1);
 					//ensures that the value doesn't exceed the array size
 					String output = String.format("Condition No:%s is: %s",val + 1, arrayList.get(value));
+					finalList += output + "<br>";
 					//Removing the item from the array as it loops through
 					arrayList.remove(value);
-					System.out.println(output);
-					     //String outputPolicy = arrayList.get(value);
-					     //System.out.println(outputPolicy);
-					}
+				}
+					
+					System.out.println("Policy Conditions:" + finalList);
+					guiTextDisplay("Policy Conditions: <br>" + finalList);
+					    
+					
 		
 			}
 		
@@ -309,18 +324,40 @@ public class InsurancePol {
 
 		public static void guiManagement(String textToDisplay) {
 			
-			GuiFrame frame = new GuiFrame();
 			ImageIcon image = new ImageIcon("Icon512x.png");
-			GuiFrame.label.setText(textToDisplay);
+			GuiFrame.label.setText("<html>" + textToDisplay + "</html>");
 			frame.setTitle("Registration");
 			frame.setSize(420, 120);
 			frame.setIconImage(image.getImage());
 			
-			
-			
 		}
+		//adds action listener from the button in the other scene
+		public static void buttonChecker() {
+			GuiFrame.getButton().addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					buttonOutput = GuiFrame.textfield.getText();
+					latch.countDown();
+					GuiFrame.textfield.setText("");
+					
+					
+				}
+				
+			});
+
+		}
+	
+		public static void guiTextDisplay(String input) {
+			frame.setSize(420, 240);
+			frame.remove(GuiFrame.button);
+			frame.remove(GuiFrame.textfield);
+			GuiFrame.label.setPreferredSize(new Dimension(300,220));
+			GuiFrame.label.setText("<html>" + input + "</html>");
+		}
+		
 }
 	
-	
+		
 	
 	

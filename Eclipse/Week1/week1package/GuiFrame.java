@@ -27,21 +27,23 @@ public class GuiFrame  extends JFrame implements ActionListener{
 		textfield = new JTextField();
 		button = new JButton("Submit");
 		textfield.setPreferredSize(new Dimension(150, 60));
+		label.setPreferredSize(new Dimension(160,60));
 		this.add(label);
 		this.add(textfield);
 		this.add(button);
+		
 		button.addActionListener(this);
 		
 	}
 	
+	public static JButton getButton() {
+		return button;
+		
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource()==button) {
-			textfield.getText();
-			
-		}
-	
-		
+		// TODO Auto-generated method stub
 		
 	}
 }

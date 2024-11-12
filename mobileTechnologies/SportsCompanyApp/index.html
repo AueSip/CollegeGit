@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled App Layout</title>
+    <style>
+        /* Reset and basic styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body, html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f9;
+        }
+        
+        /* Mobile phone frame */
+        .phone {
+            width: 300px;
+            height: 600px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top bar with search and logo */
+        .top-bar {
+            display: flex;
+            padding: 10px 20px;
+            background-color: #2d007a;
+            color: white;
+            align-items: center;
+            gap: 10px;
+        }
+        .top-bar input[type="text"] {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .top-bar .logo {
+            width: 40px;
+            height: 40px;
+            background-color: #3c1f94;
+            border-radius: 50%;
+        }
+
+        /* Company info section */
+        .company-info {
+            background-color: #2d1b60;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Content container filling bottom half */
+        .content-container {
+            flex: 1;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            display: inline-block;
+            align-items: center;
+            color: #2d007a;
+            font-size: 18px;
+            padding: 20px;
+        }
+
+        /* Gesture bar at the bottom */
+        .gesture-bar {
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #70665f;
+        }
+        .gesture-bar::before {
+            content: '';
+            width: 50px;
+            height: 4px;
+            background-color: #3c1f94;
+            border-radius: 2px;
+        }
+        .item-container {
+            display: flex;
+            align-items: center;
+            width: 90%;
+            padding: 10px;
+            background-color: #f4f4f9; /* Lighter purple */
+            border-left: 6px solid #bf9cf2; /* Medium lavender */
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+
+        .item-container img {
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            margin-right: 10px;
+            border: 2px solid #2d007a; /* Darker purple border */
+        }
+
+        .item-container span {
+            font-size: 16px;
+            font-weight: 600;
+            color: #4a0080; /* Dark purple for text */
+        }
+    </style>
+</head>
+<body>
+    <div class="phone">
+        <div class="top-bar">
+            <input type="text" placeholder="Search...">
+            <div class="logo"><img class="logo" src = "./images/logo.webp"></div>
+        </div>
+        <div class="company-info">
+            <p>Velocity Gear</p>
+            <p>Contact: +1 (123) 456-7893</p>
+        </div>
+        <div class="content-container">
+        
+                <div class="item-container">
+                    <img src="./images/SportsClothes.webp" alt="Sports Wear">
+                    <span>Sports wear</span>
+                </div>
+                <div class="item-container">
+                    <img src="./images/Swimming.webp" alt="Swim Wear">
+                    <span>Swim wear</span>
+                </div>
+                <div class="item-container">
+                    <img src="./images/Sports.jpeg" alt="Equipment">
+                    <span>Equipment</span>
+                </div>
+
+        </div>
+        <div class="gesture-bar"></div>
+    </div>
+</body>
+</html>
