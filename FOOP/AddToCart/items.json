@@ -1,0 +1,13 @@
+[
+  {"name": "apple watch", "price": 329.99},
+  {"name": "samsung galaxy s10", "price": 799.99},
+  {"name": "dell xps 13", "price": 999.99},
+  {"name": "canon eos 5d mark iv", "price": 2799.99},
+  {"name": "sony playstation 4 pro", "price": 399.99},
+  {"name": "gopro hero7 black", "price": 399.99},
+  {"name": "amazon echo show", "price": 229.99},
+  {"name": "bose quietcomfort 35 ii", "price": 349.99},
+  {"name": "apple airpods pro", "price": 249.99},
+  {"name": "microsoft surface pro 7", "price": 899.99}
+]
+

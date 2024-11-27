@@ -1,0 +1,230 @@
+/*Custom Font*/
+@font-face {
+    font-family: DPComic;
+    src: url('dpcomic.ttf');
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+header{
+    color: white;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    height: auto;
+    width: 100%;
+    border: 0px solid #283725;
+    background-color: #274324;
+}
+
+.boxContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #602322;
+    background-color: #283725;
+}
+
+.container .image-description {
+    margin: 0px;
+    text-align: center;
+}
+
+.container .image-description img {
+    border-radius: 8px;
+    width: 50%;
+    height: 50%;
+    overflow: hidden;
+}
+
+.container .image-description p {
+    font-size: 14px;
+    color: #000000;
+    background-color: #ffffff;
+    margin-top: 5px;
+}
+
+.headerList {
+    display: inline-block;
+    list-style-type: none;
+    padding: 3px;
+    margin: auto;
+    overflow: hidden;
+    text-align: center;
+    background-color: #274324;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    border: 3px solid #602322;
+    z-index: 1;
+}
+
+.headerItem {
+    font-weight: bold;
+    display: inline-block;
+    background-color: white;
+    border: 5px solid #283725;
+    margin: auto;
+    text-align: center;
+    padding: -20px -20px;
+    text-decoration: none;
+    font-size: 17px;
+    margin-left: -5px;
+    width: 20%;
+    margin-right: -5px;
+    color: #000000;
+}
+
+.headerItem:hover {
+    background-color: #455e3f;
+    color: #000000;
+}
+
+.emptyDiv {
+    width: 100%;
+    height: 300px;
+}
+
+.emptyDiv2 {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+    height: 300px;
+}
+
+body {
+    background-image: url("../Images/GlaiveBackground.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.imageIcon {
+    width: 10%;
+    height: auto;
+    position: relative;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+   
+}
+
+footer {
+    font-size: 24px;
+    font-style: italic;
+    background-color: #283725;
+    height: auto;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    padding: 3px;
+    color: #ffffff;
+}
+
+.titleDiv {
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    background-image: url("../Images/PixelBkground.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+}
+
+.purchaseButton {
+    background-color: #cd000a;
+    color: #f5f5f5;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: DPComic;
+    transition: background-color 0.3s ease;
+}
+
+.purchaseButton:hover {
+    background-color: #8d2523;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:hover {
+    background-color: #00ff00;
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .boxContainer {
+        margin: 10px 0px;
+    }
+
+    .container .image-description {
+        margin: 0px;
+    }
+
+    .headerList {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .headerItem {
+        width: 100%;
+        margin: 5px 0px;
+        text-align: center;
+    }
+
+    .emptyDiv {
+        height: 300px;
+    }
+
+    .emptyDiv2 {
+        height: 300px;
+    }
+
+    .titleDiv {
+        height: 50px;
+    }
+
+    .purchaseButton {
+        width: 100%;
+        margin: 5px 0px;
+        text-align: center;
+    }
+
+    .imageIcon {
+        width: 10%;
+        height: auto;
+        position: absolute;
+        top: 45%;
+        left: 53%;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+       
+    }
+}
+

@@ -1,0 +1,1 @@
+Truck,Vehicle,999.0
